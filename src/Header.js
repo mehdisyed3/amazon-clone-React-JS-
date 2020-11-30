@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Header.css'
 import SearchIcon from "@material-ui/icons/Search"
-import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket"
-import {Link} from 'react-router-dom'
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { Link } from 'react-router-dom'
+import { Context } from './Context'
 
 function Header() {
+  const { cart } = useContext(Context)
   return (
     <div className="header">
       <Link to='/' >
-      <img src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" className="header__logo" alt="" />
+        <img src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" className="header__logo" alt="" />
       </Link>
       <div className="header__search">
         <input className="header__searchInput" type="text" />
@@ -32,15 +34,15 @@ function Header() {
           <span className="header__optionLineTwo">Prime</span>
         </div>
         <Link to='/checkout' >
-        <div className="header__optionBasket">
-          
-          <ShoppingBasketIcon />
-          
+          <div className="header__optionBasket">
 
-          <span className="header__optionLineTwo header__basketCount">
-          0
-          </span> 
-        </div>
+            <ShoppingCartIcon />
+
+
+            <span className="header__optionLineTwo header__basketCount">
+              {cart?.length}
+            </span>
+          </div>
         </Link>
 
       </div>

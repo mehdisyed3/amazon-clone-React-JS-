@@ -4,10 +4,14 @@ const Context = React.createContext()
 
 
 function ContextProvider({ children }) {
-  const [basket, setBasket] = useState([]);
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (newItem) =>{
+    setCart([...cart,newItem])
+  }
 
   return (
-    <Context.Provider value={basket} >
+    <Context.Provider value={{ cart, addToCart}} >
       {children}
     </Context.Provider>
   )

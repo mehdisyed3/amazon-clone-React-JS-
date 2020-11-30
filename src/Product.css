@@ -29,6 +29,7 @@
   margin-top: 10px;
   border-color: #846a29;
   color: #111;
+  cursor: pointer;
 }
 
 .product__price {
@@ -38,4 +39,10 @@
 .product__info {
   height: 100px;
   margin-bottom: 15px;
+}
+
+.product__icon{
+  display: flex;
+  flex:1;
+  justify-content: space-between;
 }
