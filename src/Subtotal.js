@@ -1,6 +1,7 @@
 import React, {useContext} from 'react'
 import "./Subtotal.css"
 import CurrencyFormat from 'react-currency-format'
+
 import {Context} from './Context'
 
 
@@ -21,7 +22,7 @@ function Subtotal() {
           <>
             <p>
 
-              Subtotal ({cart?.length} items): <strong>{`$${total}`}</strong>
+              Subtotal ({cart?.length} items): <strong>{value}</strong>
             </p>
             <small className="subtotal__gift">
               <input type="checkbox" /> This order contains a gift

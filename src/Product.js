@@ -29,8 +29,8 @@ function Product({ id, title, price, rating, image }) {
         </div>
       </div>
       <img src={image} />
-      {inCart && <div className='product__icon'> <CheckIcon /> <small>Item added to cart </small> </div>}
-  <button onClick={() => addToCart({ id, title, price, image })}> Add to Cart </button>
+      {inCart ? <div className='product__icon'> <CheckIcon /> <small>Item added to cart </small> </div> : <small></small>}
+  <button onClick={() => addToCart({ id, title, price, image, rating })}> Add to Cart </button>
     </div>
   )
 }
