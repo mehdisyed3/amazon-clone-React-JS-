@@ -1,12 +1,17 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import './App.css';
 import Header from './Header'
 import Home from './Home'
 import { Switch, Route } from 'react-router-dom'
 import Checkout from './Checkout';
+// import {Context} from './Context.js'
+
 
 // t === 151
 function App() {
+
+
+  
   return (
 
 
