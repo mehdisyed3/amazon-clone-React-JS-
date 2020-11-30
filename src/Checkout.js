@@ -20,7 +20,7 @@ function Checkout() {
 
       </div>
       <div className="checkout__right">
-
+        <h1>SubTotal</h1>
       </div>
     </div>
   )
