@@ -1,8 +1,13 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import './CheckoutProduct.css'
+import {Context} from './Context'
 
 
 function CheckoutProduct({ id, image, title, price, rating }) {
+  const {removeItem} = useContext(Context)
+
+  console.log(removeItem)
+
   return (
     <div className="checkoutProduct">
       <img className='checkoutProduct__image' src={image} />
@@ -14,11 +19,12 @@ function CheckoutProduct({ id, image, title, price, rating }) {
           {Array(rating)
             .fill()
             .map((_, i) => (
-              <p>🌟</p>
+              <p>&#11088;</p>
             ))}
         </div>
-
+        <button onClick={()=>removeItem(id)}>Delete Item</button>
       </div>
+      
     </div>
   )
 }

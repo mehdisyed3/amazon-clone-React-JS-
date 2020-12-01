@@ -1,27 +1,23 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import "./Subtotal.css"
 import CurrencyFormat from 'react-currency-format'
 
-import {Context} from './Context'
+import { Context } from './Context'
 
 
 function Subtotal() {
-  const {cart} = useContext(Context)
-  console.log(cart)
+  const { cart } = useContext(Context)
+  // console.log(cart)
 
-  const total = cart?.length && cart.reduce((acc,cv) => acc + cv.price,0)
-
-
-
-  console.log(total)
+  const total = cart?.length && cart.reduce((acc, cv) => acc + cv.price, 0)
+  // console.log(total)
 
   return (
     <div className='subtotal'>
-       <CurrencyFormat
+      <CurrencyFormat
         renderText={(value) => (
           <>
             <p>
-
               Subtotal ({cart?.length} items): <strong>{value}</strong>
             </p>
             <small className="subtotal__gift">

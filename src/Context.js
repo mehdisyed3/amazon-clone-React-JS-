@@ -10,8 +10,19 @@ function ContextProvider({ children }) {
     setCart([...cart,newItem])
   }
 
+  const removeItem = (id)=>{
+
+    let index = cart.findIndex(item => item.id === id)
+
+    const final = cart.filter((item,i)=> i !== index )
+
+    setCart(final)
+
+  }
+
+
   return (
-    <Context.Provider value={{ cart, addToCart}} >
+    <Context.Provider value={{ cart, addToCart, removeItem}} >
       {children}
     </Context.Provider>
   )

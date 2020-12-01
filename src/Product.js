@@ -6,21 +6,19 @@ import CheckIcon from '@material-ui/icons/Check';
 
 function Product({ id, title, price, rating, image }) {
   const { addToCart, cart } = useContext(Context)
+  console.log(cart)
 
-  // console.log(cart)
-
-  const inCart = cart.some(item=> id === item.id)
-
-  console.log(inCart)
+  const inCart = cart.some(item => id === item.id)
+  // console.log(inCart)
 
   return (
     <div className='product'>
       <div className='product__inCart'>
-      
+
       </div>
       <div className="product__info" >
         <p>{title}</p>
-        
+
         <p className='product__price'>
           <small>$</small> <strong>{price}</strong>
         </p>
@@ -30,7 +28,7 @@ function Product({ id, title, price, rating, image }) {
       </div>
       <img src={image} />
       {inCart ? <div className='product__icon'> <CheckIcon /> <small>Item added to cart </small> </div> : <small></small>}
-  <button onClick={() => addToCart({ id, title, price, image, rating })}> Add to Cart </button>
+      <button onClick={() => addToCart({ index:cart.length+1, id, title, price, image, rating })}> Add to Cart </button>
     </div>
   )
 }
