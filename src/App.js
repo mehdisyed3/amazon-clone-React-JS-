@@ -4,10 +4,11 @@ import Header from './Header'
 import Home from './Home'
 import { Switch, Route } from 'react-router-dom'
 import Checkout from './Checkout';
+import Login from './Login'
 // import {Context} from './Context.js'
 
 
-// t > 3:00
+// t > 3:20
 function App() {
 
   return (
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route path='/checkout'>
           <Checkout />
+        </Route>
+        <Route path='/login'>
+          <Login />
         </Route>
 
 

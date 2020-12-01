@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import './Header.css'
 import SearchIcon from "@material-ui/icons/Search"
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import Login from './Login'
 import { Link } from 'react-router-dom'
 import { Context } from './Context'
 
@@ -18,11 +19,12 @@ function Header() {
       </div>
 
       <div className="header__nav">
-
+        <Link to='/login' >
         <div className="header__option">
           <span className="header__optionLineOne">Hello Guest</span>
           <span className="header__optionLineTwo">Sign in</span>
         </div>
+        </Link>
 
         <div className="header__option">
           <span className="header__optionLineOne">Returns</span>
