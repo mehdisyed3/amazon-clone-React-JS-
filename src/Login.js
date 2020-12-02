@@ -1,9 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Login.css'
 import { Link } from 'react-router-dom'
 
 
 function Login() {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+
+  const handleChange = (e) => {
+
+   if(e.target.name === 'email') setEmail(e.target.value) 
+   if(e.target.name === 'password') setPassword(e.target.value) 
+
+  }
+
+  const handleSubmit = (e) => {
+    
+
+    console.log("HORAHAI")
+  }
+
+  // console.log("THIS IS EMAIL",email)
+  // console.log("THIS IS PWD", password)
+
   return (
     <div className='login'>
       <Link to='/'>
@@ -19,12 +39,12 @@ function Login() {
 
         <form>
           <h5>E-mail</h5>
-          <input type='text' />
+          <input type='text' name='email' value={email} onChange={handleChange} />
 
           <h5>Password</h5>
-          <input type='password' />
+          <input type='password' name='password' value={password} onChange={handleChange} />
 
-          <button className='login__signInButton' >Sign In</button>
+          <button className='login__signInButton' type='submit' onSubmit={(e)=> e.preventDefault(), console.log(email)} >Sign In</button>
         </form>
         <p>
           By signing-in you agree to the AMAZON FAKE CLONE Conditions of Use & Sale. Please see our Privacy Notice, our Cookies Noties
