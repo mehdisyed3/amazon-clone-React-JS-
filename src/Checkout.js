@@ -8,7 +8,7 @@ import { Context } from './Context'
 function Checkout() {
   const { cart } = useContext(Context)
 
-  const cartItems = cart.length && cart.map(item => <CheckoutProduct id={item.id} image={item.image} title={item.title} price={item.price} rating={item.rating} />)
+  const cartItems = cart.length && cart.map((item,i )=> <CheckoutProduct key={i} id={item.id} image={item.image} title={item.title} price={item.price} rating={item.rating} />)
 
   return (
     <div className='checkout'>
