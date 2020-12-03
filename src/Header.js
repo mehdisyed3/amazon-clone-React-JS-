@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import { Context } from './Context'
 
 function Header() {
-  const { cart } = useContext(Context)
+  const { cart, user } = useContext(Context)
   return (
     <div className="header">
       <Link to='/' >
@@ -20,10 +20,10 @@ function Header() {
 
       <div className="header__nav">
         <Link to='/login' >
-        <div className="header__option">
-          <span className="header__optionLineOne">Hello Guest</span>
-          <span className="header__optionLineTwo">Sign in</span>
-        </div>
+          <div className="header__option">
+            <span className="header__optionLineOne">Hello {user ? `${user}` : 'Guest'}</span>
+            <span className="header__optionLineTwo">Sign in</span>
+          </div>
         </Link>
 
         <div className="header__option">

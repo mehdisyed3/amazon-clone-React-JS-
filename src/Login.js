@@ -22,7 +22,7 @@ function Login() {
 
   }
 
-  const handleSubmit = (e) => {
+  const signIn = (e) => {
 
     e.preventDefault();
 
@@ -76,7 +76,7 @@ function Login() {
           <h5>Password</h5>
           <input type='password' name='password' value={password} onChange={handleChange} />
 
-          <button className='login__signInButton' type='submit' onClick={handleSubmit} >Sign In</button>
+          <button className='login__signInButton' type='submit' onClick={signIn} >Sign In</button>
         </form>
         <p>
           By signing-in you agree to the AMAZON FAKE CLONE Conditions of Use & Sale. Please see our Privacy Notice, our Cookies Noties
