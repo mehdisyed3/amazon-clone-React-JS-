@@ -3,10 +3,10 @@ import "./Checkout.css"
 import Subtotal from './Subtotal'
 import CheckoutProduct from './CheckoutProduct'
 
-import { Context } from './Context'
+import { Context} from './Context'
 
 function Checkout() {
-  const { cart } = useContext(Context)
+  const { cart, user } = useContext(Context)
 
   const cartItems = cart.length && cart.map((item,i )=> <CheckoutProduct key={i} id={item.id} image={item.image} title={item.title} price={item.price} rating={item.rating} />)
 
@@ -20,7 +20,7 @@ function Checkout() {
             alt=""
           />
           <div>
-
+            <h4 className="checkout__user">{user}</h4>
             <h2 className="checkout__title">Your shopping Basket</h2>
             {cartItems?.length && cartItems}
           </div>

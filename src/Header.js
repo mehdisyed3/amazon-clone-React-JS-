@@ -6,8 +6,17 @@ import Login from './Login'
 import { Link } from 'react-router-dom'
 import { Context } from './Context'
 
+import {auth} from './firebase'
+
 function Header() {
   const { cart, user } = useContext(Context)
+
+  const signOut = () => {
+    if(user){
+      auth.signOut()
+    }
+  }
+
   return (
     <div className="header">
       <Link to='/' >
@@ -19,10 +28,10 @@ function Header() {
       </div>
 
       <div className="header__nav">
-        <Link to='/login' >
-          <div className="header__option">
+        <Link to={!user ? '/login' : '/'} >
+          <div className="header__option" onClick={signOut}>
             <span className="header__optionLineOne">Hello {user ? `${user}` : 'Guest'}</span>
-            <span className="header__optionLineTwo">Sign in</span>
+            <span className="header__optionLineTwo">{user ? 'Sign Out' : 'Sign In'}</span>
           </div>
         </Link>
 
