@@ -6,22 +6,22 @@ import { Switch, Route } from 'react-router-dom'
 import Checkout from './Checkout';
 import Login from './Login'
 import { auth } from './firebase'
-import {Context} from './Context.js'
+import { Context } from './Context.js'
 import Payment from './Payment'
 
 
 
 // t > 5.17
 function App() {
-  const {setUser, user} = useContext(Context)
+  const {setUserObj, setUser, user } = useContext(Context)
 
-  console.log('USER>>>', user)
+  // console.log('USER', user)
 
   useEffect(() => {
 
-    auth.onAuthStateChanged(user => {
+    auth.onAuthStateChanged(user => { // USER
       user ? setUser(user.email) 
-           : setUser(null)
+        : setUser(null)
     })
 
   }, [])
@@ -31,6 +31,7 @@ function App() {
 
       <Header />
       <Switch>
+
         <Route exact path='/' >
           <Home />
         </Route>
@@ -43,7 +44,6 @@ function App() {
         <Route path='/payment' >
           <Payment />
         </Route>
-
 
       </Switch>
 

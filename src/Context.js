@@ -5,7 +5,9 @@ const Context = React.createContext()
 
 function ContextProvider({ children }) {
   const [cart, setCart] = useState([]);
-  const [user , setUser] = useState([])
+  const [user , setUser] = useState('')
+  const [userObj,setUserObj] = useState()
+  
 
   
   const addToCart = (newItem) => {
@@ -24,7 +26,7 @@ function ContextProvider({ children }) {
 
 
   return (
-    <Context.Provider value={{ cart, addToCart, removeItem, setUser, user }} >
+    <Context.Provider value={{ cart, addToCart, removeItem, setUser, user, setUserObj,userObj }} >
       {children}
     </Context.Provider>
   )

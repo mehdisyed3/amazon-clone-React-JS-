@@ -30,7 +30,7 @@ function Login() {
         .signInWithEmailAndPassword(email,password)
         .then(user => {
           history.push('/')
-          console.log("SIGN IN")
+          // console.log("SIGN IN")
         })
         .catch(err => alert(err.message))
 

@@ -2,17 +2,16 @@ import React, { useContext } from 'react'
 import './Header.css'
 import SearchIcon from "@material-ui/icons/Search"
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-
 import { Link } from 'react-router-dom'
 import { Context } from './Context'
 
-import {auth} from './firebase'
+import { auth } from './firebase'
 
 function Header() {
   const { cart, user } = useContext(Context)
 
   const signOut = () => {
-    if(user){
+    if (user) {
       auth.signOut()
     }
   }
