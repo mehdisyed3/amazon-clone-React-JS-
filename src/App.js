@@ -7,9 +7,11 @@ import Checkout from './Checkout';
 import Login from './Login'
 import { auth } from './firebase'
 import {Context} from './Context.js'
+import Payment from './Payment'
 
 
-// t > 5.05
+
+// t > 5.17
 function App() {
   const {setUser, user} = useContext(Context)
 
@@ -37,6 +39,9 @@ function App() {
         </Route>
         <Route path='/login'>
           <Login />
+        </Route>
+        <Route path='/payment' >
+          <Payment />
         </Route>
 
 

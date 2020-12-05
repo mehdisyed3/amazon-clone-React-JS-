@@ -3,11 +3,15 @@ import "./Subtotal.css"
 import CurrencyFormat from 'react-currency-format'
 
 import { Context } from './Context'
+import { useHistory } from 'react-router-dom'
 
 
 function Subtotal() {
   const { cart } = useContext(Context)
+  const history = useHistory()
+
   // console.log(cart)
+
 
   const total = cart?.length && cart.reduce((acc, cv) => acc + cv.price, 0)
   // console.log(total)
@@ -32,7 +36,7 @@ function Subtotal() {
         prefix={"$"}
       />
 
-      <button>Proceed to Checkout</button>
+      <button onClick={()=> history.push('/payment')}>Proceed to Checkout</button>
     </div>
   )
 }

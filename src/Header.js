@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import './Header.css'
 import SearchIcon from "@material-ui/icons/Search"
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import Login from './Login'
+
 import { Link } from 'react-router-dom'
 import { Context } from './Context'
 
