@@ -6,7 +6,7 @@ import { Link, useHistory } from 'react-router-dom'
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import CurrencyFormat from 'react-currency-format'
 import axios from './axios';
-import { setCaretPosition } from 'react-currency-format/lib/utils'
+
 
 
 function Payment() {
