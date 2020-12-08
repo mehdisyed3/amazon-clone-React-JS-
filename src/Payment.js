@@ -19,6 +19,9 @@ function Payment() {
 
   const history = useHistory()
 
+  const stripe = useStripe()
+  const elements = useElements()
+
   const items = cart.map((item, i) => <CheckoutProduct key={i} id={item.id} image={item.image} title={item.title} price={item.price} rating={item.rating} />)
   const total = cart?.length && cart.reduce((acc, cv) => acc + cv.price, 0)
 
@@ -28,14 +31,18 @@ function Payment() {
         method: 'post',
         // Stripe expects the total in a currencies subunits hence we multiply total with 100
         url: `/payments/create?total=${total * 100}`
+        
       });
-      setClientSecret(response.data.clientSecret)
+      console.log("RESSPONS", response)
+      .then(setClientSecret(response.data.clientSecret))
     }
+    getClientSecret()
   }
     , [cart])
 
-  const stripe = useStripe()
-  const elements = useElements()
+    console.log("CLIENT SECRET IS >>>>>>",clientSecret)
+
+  
 
   const handleSubmit = async (event) => {
     // do all the fancy stripe stuff...

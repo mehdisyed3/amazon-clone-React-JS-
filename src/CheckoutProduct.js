@@ -6,7 +6,7 @@ import {Context} from './Context'
 function CheckoutProduct({ id, image, title, price, rating }) {
   const {removeItem} = useContext(Context)
 
-  console.log(removeItem)
+  // console.log(removeItem)
 
   return (
     <div className="checkoutProduct">
