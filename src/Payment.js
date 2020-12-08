@@ -17,6 +17,7 @@ function Payment() {
   const [processing, setProcessing] = useState("");
   const [clientSecret, setClientSecret] = useState(true)
 
+
   const history = useHistory()
 
   const stripe = useStripe()
@@ -26,19 +27,18 @@ function Payment() {
   const total = cart?.length && cart.reduce((acc, cv) => acc + cv.price, 0)
 
   useEffect(() => {
+    // generate the special stripe secret which allows us to charge a customer
     const getClientSecret = async () => {
-      const response = await axios({
-        method: 'post',
-        // Stripe expects the total in a currencies subunits hence we multiply total with 100
-        url: `/payments/create?total=${total * 100}`
-        
-      });
-      console.log("RESSPONS", response)
-      .then(setClientSecret(response.data.clientSecret))
+        const response = await axios({
+            method: 'post',
+            // Stripe expects the total in a currencies subunits
+            url: `/payments/create?total=${total * 100}`
+        });
+        setClientSecret(response.data.clientSecret)
     }
-    getClientSecret()
-  }
-    , [cart])
+
+    getClientSecret();
+}, [cart])
 
     console.log("CLIENT SECRET IS >>>>>>",clientSecret)
 
@@ -140,7 +140,7 @@ function Payment() {
                   thousandSeparator={true}
                   prefix={"$"}
                 />
-                <button disabled={processing || disabled || succeeded}>
+                <button disabled={!cart.length || processing || disabled || succeeded}>
                   <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
                 </button>
               </div>
