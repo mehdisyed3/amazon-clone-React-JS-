@@ -13,7 +13,7 @@ import { Elements } from '@stripe/react-stripe-js'
 
 
 const promise  = loadStripe('pk_test_51HvtWZDBgrMbvem70dLJ4lbMCSg9gWJcQJnOZZzfD6hV6HNFsMYoZ7Fv3lwJ60Ilm3uVqugOy1BbdzcPfpt6qe9i005SF4Sy4U')
-// t > 6.04
+// t > 6.18
 function App() {
   const {setUserObj, setUser, user } = useContext(Context)
 
