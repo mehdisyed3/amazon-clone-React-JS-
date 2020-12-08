@@ -26,7 +26,7 @@ function ContextProvider({ children }) {
 
 
   return (
-    <Context.Provider value={{ cart, addToCart, removeItem, setUser, user, setUserObj,userObj }} >
+    <Context.Provider value={{ cart, setCart, addToCart, removeItem, setUser, user, setUserObj,userObj }} >
       {children}
     </Context.Provider>
   )
