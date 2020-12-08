@@ -10,6 +10,7 @@ import { Context } from './Context.js'
 import Payment from './Payment'
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements } from '@stripe/react-stripe-js'
+import Orders from './Orders';
 
 
 const promise  = loadStripe('pk_test_51HvtWZDBgrMbvem70dLJ4lbMCSg9gWJcQJnOZZzfD6hV6HNFsMYoZ7Fv3lwJ60Ilm3uVqugOy1BbdzcPfpt6qe9i005SF4Sy4U')
@@ -47,6 +48,9 @@ function App() {
           <Elements stripe={promise}>
           <Payment />
           </Elements>
+        </Route>
+        <Route path='/orders'>
+          <Orders />
         </Route>
 
 
