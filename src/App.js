@@ -23,8 +23,11 @@ function App() {
   useEffect(() => {
 
     auth.onAuthStateChanged(user => { // USER
-      user ? setUser(user.email) 
-        : setUser(null)
+        if (user){
+          setUser(user.email)
+          setUserObj(user)
+        }
+
     })
 
   }, [])

@@ -6,11 +6,13 @@ import { Link, useHistory } from 'react-router-dom'
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import CurrencyFormat from 'react-currency-format'
 import axios from './axios';
+import {db} from './firebase'
+
 
 
 
 function Payment() {
-  const { user, cart, setCart } = useContext(Context)
+  const { user, userObj, cart, setCart } = useContext(Context)
   const [error, setError] = useState(null);
   const [disabled, setDisabled] = useState(true)
   const [succeeded, setSucceeded] = useState(false);
@@ -41,6 +43,8 @@ function Payment() {
 }, [cart])
 
     console.log("CLIENT SECRET IS >>>>>>",clientSecret)
+    console.log('@@@@@@@@', userObj)
+
 
   
 
@@ -57,16 +61,16 @@ function Payment() {
       .then(({ paymentIntent }) => { //destructured
         // paymentIntent = payment confirmation
 
-        // db
-        //   .collection('users')
-        //   .doc(user?.uid)
-        //   .collection('orders')
-        //   .doc(paymentIntent.id)
-        //   .set({
-        //     basket: cart,
-        //     amount: paymentIntent.amount,
-        //     created: paymentIntent.created
-        //   })
+        db
+          .collection('users')
+          .doc(userObj?.uid)
+          .collection('orders')
+          .doc(paymentIntent.id)
+          .set({
+            cart: cart,
+            amount: paymentIntent.amount,
+            created: paymentIntent.created
+          })
 
         setSucceeded(true);
         setError(null)

@@ -6,7 +6,8 @@ const Context = React.createContext()
 function ContextProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [user , setUser] = useState('')
-  const [userObj,setUserObj] = useState()
+  const [userObj,setUserObj] = useState([])
+
   
 
   
