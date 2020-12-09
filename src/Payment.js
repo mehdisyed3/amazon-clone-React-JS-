@@ -6,9 +6,7 @@ import { Link, useHistory } from 'react-router-dom'
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import CurrencyFormat from 'react-currency-format'
 import axios from './axios';
-import {db} from './firebase'
-
-
+import { db } from './firebase'
 
 
 function Payment() {
@@ -31,22 +29,22 @@ function Payment() {
   useEffect(() => {
     // generate the special stripe secret which allows us to charge a customer
     const getClientSecret = async () => {
-        const response = await axios({
-            method: 'post',
-            // Stripe expects the total in a currencies subunits
-            url: `/payments/create?total=${total * 100}`
-        });
-        setClientSecret(response.data.clientSecret)
+      const response = await axios({
+        method: 'post',
+        // Stripe expects the total in a currencies subunits
+        url: `/payments/create?total=${total * 100}`
+      });
+      setClientSecret(response.data.clientSecret)
     }
 
     getClientSecret();
-}, [cart])
+  }, [cart])
 
-    console.log("CLIENT SECRET IS >>>>>>",clientSecret)
-    console.log('@@@@@@@@', userObj)
+  console.log("CLIENT SECRET IS >>>>>>", clientSecret)
+  console.log('@@@@@@@@', userObj)
 
 
-  
+
 
   const handleSubmit = async (event) => {
     // do all the fancy stripe stuff...
@@ -90,7 +88,6 @@ function Payment() {
     setError(event.error ? event.error.message : "");
   }
 
-
   return (
     <div className='payment'>
       <div className='payment__container'>
@@ -102,14 +99,13 @@ function Payment() {
         <div className='payment__section'>
           <div className='payment__title'>
             <h3>Delivery Address</h3>
-
           </div>
+
           <div className='payment__address'>
             <p>{user}</p>
             <p>12 Aylesbury Dr</p>
             <p>Brampton, ON</p>
           </div>
-
         </div>
 
         <div className='payment__section'>
@@ -152,10 +148,7 @@ function Payment() {
               {error && <div>{error}</div>}
 
             </form>
-
           </div>
-
-
         </div>
 
       </div>

@@ -19,23 +19,19 @@ function Login() {
     if (e.target.name === 'email') setEmail(e.target.value)
     if (e.target.name === 'password') setPassword(e.target.value)
     // console.log("CHANGINg")
-
   }
 
   const signIn = (e) => {
 
     e.preventDefault();
 
-    auth 
-        .signInWithEmailAndPassword(email,password)
-        .then(user => {
-          history.push('/')
-          // console.log("SIGN IN")
-        })
-        .catch(err => alert(err.message))
-
-        
-
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then(user => {
+        history.push('/')
+        // console.log("SIGN IN")
+      })
+      .catch(err => alert(err.message))
   }
 
   const register = (e) => {
@@ -47,7 +43,6 @@ function Login() {
       .then((auth => {
         // this is where it successfully creates user and awaits further instructions. After registering, user should be sent to home page
         //  to do that , useHistory  is to direct us to the desired page
-
         auth && history.push('/')
 
       }))

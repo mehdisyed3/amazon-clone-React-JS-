@@ -13,20 +13,20 @@ import { Elements } from '@stripe/react-stripe-js'
 import Orders from './Orders';
 
 
-const promise  = loadStripe('pk_test_51HvtWZDBgrMbvem70dLJ4lbMCSg9gWJcQJnOZZzfD6hV6HNFsMYoZ7Fv3lwJ60Ilm3uVqugOy1BbdzcPfpt6qe9i005SF4Sy4U')
+const promise = loadStripe('pk_test_51HvtWZDBgrMbvem70dLJ4lbMCSg9gWJcQJnOZZzfD6hV6HNFsMYoZ7Fv3lwJ60Ilm3uVqugOy1BbdzcPfpt6qe9i005SF4Sy4U')
 // t > 6.22
 function App() {
-  const {setUserObj, setUser, user } = useContext(Context)
+  const { setUserObj, setUser, user } = useContext(Context)
 
   // console.log('USER', user)
 
   useEffect(() => {
 
     auth.onAuthStateChanged(user => { // USER
-        if (user){
-          setUser(user.email)
-          setUserObj(user)
-        }
+      if (user) {
+        setUser(user.email)
+        setUserObj(user)
+      }
 
     })
 
@@ -49,19 +49,14 @@ function App() {
         </Route>
         <Route path='/payment' >
           <Elements stripe={promise}>
-          <Payment />
+            <Payment />
           </Elements>
         </Route>
         <Route path='/orders'>
           <Orders />
         </Route>
 
-
       </Switch>
-
-
-
-
 
     </div>
 

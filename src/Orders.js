@@ -8,7 +8,7 @@ function Orders() {
   const { userObj, cart } = useContext(Context)
 
   useEffect(() => {
-    if (userObj) {  
+    if (userObj) {
       db
         .collection('users') // accessing users collection << 7.47 vdo par >>
         .doc(userObj?.uid) // getting the specific user that is logged in
@@ -28,7 +28,7 @@ function Orders() {
   return (
     <div className='orders'>
       <h1>Your Orders</h1>
-{/* 
+      {/* 
       <div className='orders__order'>
                 {orders?.map(order => (
                     <Order order={order} />
