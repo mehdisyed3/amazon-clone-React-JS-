@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import './Orders.css'
 import { db } from './firebase'
 import { Context } from './Context'
+import Order from './Order'
 
 function Orders() {
   const [orders, setOrders] = useState([])
@@ -28,6 +29,7 @@ function Orders() {
   return (
     <div className='orders'>
       <h1>Your Orders</h1>
+      <Order order={orders[0]} />
       {/* 
       <div className='orders__order'>
                 {orders?.map(order => (
