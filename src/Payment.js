@@ -40,8 +40,8 @@ function Payment() {
     getClientSecret();
   }, [cart])
 
-  console.log("CLIENT SECRET IS >>>>>>", clientSecret)
-  console.log('@@@@@@@@', userObj)
+  // console.log("CLIENT SECRET IS >>>>>>", clientSecret)
+  // console.log('@@@@@@@@', userObj)
 
 
 

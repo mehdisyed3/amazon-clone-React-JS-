@@ -3,7 +3,7 @@ import './CheckoutProduct.css'
 import {Context} from './Context'
 
 
-function CheckoutProduct({ id, image, title, price, rating }) {
+function CheckoutProduct({ id, image, title, price, rating, hideButton }) {
   const {removeItem} = useContext(Context)
 
   // console.log(removeItem)
@@ -22,7 +22,11 @@ function CheckoutProduct({ id, image, title, price, rating }) {
               <p>&#11088;</p>
             ))}
         </div>
-        <button onClick={()=>removeItem(id)}>Delete Item</button>
+        {
+          !hideButton &&
+          <button onClick={()=>removeItem(id)}>Delete Item</button>
+        }
+
       </div>
       
     </div>

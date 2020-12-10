@@ -3,11 +3,14 @@ import './Orders.css'
 import { db } from './firebase'
 import { Context } from './Context'
 import Order from './Order'
+import CheckoutProduct from './CheckoutProduct'
+
 
 function Orders() {
   const [orders, setOrders] = useState([])
   const { userObj, cart } = useContext(Context)
 
+  
   useEffect(() => {
     if (userObj) {
       db
