@@ -17,6 +17,7 @@ function Payment() {
   const [processing, setProcessing] = useState("");
   const [clientSecret, setClientSecret] = useState(true)
 
+  console.log("!!!!!!!!!!!!!",<CardElement/>)
 
   const history = useHistory()
 
@@ -126,7 +127,10 @@ function Payment() {
           <div className='payment__details'>
             {/* Stripe magic */}
             <form onSubmit={handleSubmit}>
-              <CardElement onChange={handleChange} />
+
+
+              <CardElement placeHolder="sada" onChange={handleChange} />
+
               <div className='payment__priceContainer'>
                 <CurrencyFormat
                   renderText={(value) => (
