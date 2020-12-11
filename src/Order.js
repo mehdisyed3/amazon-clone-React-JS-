@@ -6,7 +6,7 @@ import CurrencyFormat from "react-currency-format"
 
 function Order({ order }) {
 
-  const orderItems = order?.data.cart?.map((item,i) => (
+  const orderItems = order?.data.cart?.map((item, i) => (
     <CheckoutProduct
       key={i}
       id={item.id}
@@ -18,8 +18,7 @@ function Order({ order }) {
     />
   ))
 
-
-  console.log("this is the Order", order)
+  // console.log("this is the Order", order)
   return (
     <div className='order'>
       <h2>Order</h2>
@@ -29,15 +28,15 @@ function Order({ order }) {
       </p>
       {orderItems}
       <CurrencyFormat
-                renderText={(value) => (
-                    <h3 className="order__total">Order Total: {value}</h3>
-                )}
-                decimalScale={2}
-                value={order?.data.amount / 100}
-                displayType={"text"}
-                thousandSeparator={true}
-                prefix={"$"}
-            />   
+        renderText={(value) => (
+          <h3 className="order__total">Order Total: {value}</h3>
+        )}
+        decimalScale={2}
+        value={order?.data.amount / 100}
+        displayType={"text"}
+        thousandSeparator={true}
+        prefix={"$"}
+      />
     </div>
   )
 }

@@ -1,10 +1,10 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import './CheckoutProduct.css'
-import {Context} from './Context'
+import { Context } from './Context'
 
 
 function CheckoutProduct({ id, image, title, price, rating, hideButton }) {
-  const {removeItem} = useContext(Context)
+  const { removeItem } = useContext(Context)
 
   // console.log(removeItem)
 
@@ -24,11 +24,11 @@ function CheckoutProduct({ id, image, title, price, rating, hideButton }) {
         </div>
         {
           !hideButton &&
-          <button onClick={()=>removeItem(id)}>Delete Item</button>
+          <button onClick={() => removeItem(id)}>Delete Item</button>
         }
 
       </div>
-      
+
     </div>
   )
 }
