@@ -5,7 +5,7 @@ import CheckoutProduct from './CheckoutProduct'
 
 import { Context} from './Context'
 
-function Checkout() {
+function Checkout() {Ï
   const { cart, user } = useContext(Context)
 
   const cartItems = cart.length && cart.map((item,i )=> <CheckoutProduct key={i} id={item.id} image={item.image} title={item.title} price={item.price} rating={item.rating} />)

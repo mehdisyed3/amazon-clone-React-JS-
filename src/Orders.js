@@ -10,7 +10,7 @@ function Orders() {
   const [orders, setOrders] = useState([])
   const { userObj, cart } = useContext(Context)
 
-  
+
   useEffect(() => {
     if (userObj) {
       db

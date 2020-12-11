@@ -26,9 +26,9 @@ function Product({ id, key, title, price, rating, image }) {
           {Array(rating).fill().map((_, i) => <p key={Math.random()} >&#11088;</p>)}
         </div>
       </div>
-      <img src={image} alt=''/>
+      <img src={image} alt='' />
       {inCart ? <div className='product__icon'> <CheckIcon /> <small>Item added to cart </small> </div> : <small></small>}
-      <button onClick={() => addToCart({ index:cart.length+1, id, title, price, image, rating })}> Add to Cart </button>
+      <button onClick={() => addToCart({ index: cart.length + 1, id, title, price, image, rating })}> Add to Cart </button>
     </div>
   )
 }

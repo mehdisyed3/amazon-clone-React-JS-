@@ -9,7 +9,7 @@ import { auth } from './firebase'
 
 
 function Header() {
-  const { setCart, cart, user,setUser } = useContext(Context)
+  const { setCart, cart, user, setUser } = useContext(Context)
 
   const signOut = () => {
     if (user) {
